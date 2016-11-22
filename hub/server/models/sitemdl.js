@@ -11,6 +11,22 @@ var siteSchema = new mongoose.Schema(
     type:String,
     unique: true,
     required: true
+  },
+  port: {
+    type:Number,
+    required: true
+  },
+  lat: {
+    type:Number,
+    required: true
+  },
+  long: {
+    type:Number,
+    required: true
+  },
+  status: {
+    type:Boolean,
+    required: true
   }
 },
   {timestamps: true}
