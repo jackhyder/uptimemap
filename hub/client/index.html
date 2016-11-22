@@ -3,26 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>🔥</title>
-    <link rel="stylesheet" type="text/css" href="static/style.css"></link>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=REPLACEAPIKEY&callback=initMap"></script>
-    <script>
-      function initMap() {
-        var center = {lat: 0, lng: 0};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 2,
-          center: center
-        });
-      }
-    </script>
+    <script src="jquery/dist/jquery.min.js"></script>
     <script src="angular/angular.js"></script>
     <script src="angular-route/angular-route.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/style.css"></link>
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyCQyPNOsj1ojcRdgSsW-LqmdGDBOEq_BFM&sensor=false"></script>
+    <script type="text/javascript" src="static/maps.js"></script>
     <script type="text/javascript" src="routes.js"></script>
     <script type="text/javascript" src="controllers/mainctrl.js"></script>
     <script type="text/javascript" src="factory/mainmdl.js"></script>
   </head>
   <body>
-    <div id="map">
+    <div id='map'>
     </div>
+    <div>
+      <a href="#/">Status</a>
+      <a href="#/config">Config</a>
     <div ng-view>
     </div>
   </body>

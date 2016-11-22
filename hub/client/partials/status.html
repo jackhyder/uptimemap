@@ -1,0 +1,17 @@
+<div ng-controller="mainController">
+  <input type="text" placeholder="Filter" ng-model="filter">
+  <table>
+    <tr>
+      <th>Location</th>
+      <th>IP Address</th>
+      <th>Port</th>
+      <th>Status</th>
+    </tr>
+    <tr ng-repeat=' | filter:filter'>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>🔥🔥🔥🔥🔥</td>
+    </tr>
+  </table>
+</div>

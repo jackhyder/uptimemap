@@ -5,7 +5,16 @@
   font-size:12px;
 }
 
+body {
+  height:100%;
+}
+
 #map {
     height: 400px;
     width:auto;
+}
+
+td, th{
+  width:130px;
+  text-align: left;
 }
