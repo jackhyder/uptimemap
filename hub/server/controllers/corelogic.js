@@ -7,26 +7,38 @@ var data = [
   {_id: "hongkong", ip: "192.168.1.131", port: "8000", int: 3}
 ]
 
-// Site.find({}, function(err, dbclone){
-//   if(err){
-//     console.log(err)
-//   }
-//   else{
-//     data = dbclone
-    console.log("Database Cached")
-//   }
-// })
-
-// Server boots, a key of nxtchk is created with a dateboject with its next time to run
-var boottime = new Date().getTime()
-for(var i = 0; i < data.length; i++){
-  data[i].nxtchk = new Date(boottime + (data[i].int * 60000))
-
-  // console.log(data[i].nxtchk.getTime())
-  // console.log(data[i].nxtchk.toLocaleTimeString())
-}
+// // Poll test
+// for (var i = 0; i < data.length; i++){
+//   http.get("http://" + data[i].ip + ":" + data[i].port, function(res){
+//       res.on('data', function(info){
+//         // why doesnt data[i] work?
+//         console.log("Site:",data[i]._id,"Result:",JSON.parse(info))
+//       })
+//   }).on('error', function(err){
+//     console.log(err.message)
+//   }).end()
+// }
 
 setTimeout(function(){
+  // Site.find({}, function(err, dbclone){
+  //   if(err){
+  //     console.log(err)
+  //   }
+  //   else{
+  //     data = dbclone
+      console.log("Database Cached")
+  //   }
+  // })
+
+  // Server boots, a key of nxtchk is created with a dateboject with its next time to run
+  var boottime = new Date().getTime()
+  for(var i = 0; i < data.length; i++){
+    data[i].nxtchk = new Date(boottime + (data[i].int * 60000))
+
+    // console.log(data[i].nxtchk.getTime())
+    // console.log(data[i].nxtchk.toLocaleTimeString())
+  }
+
   console.log("Core Logic Running")
   // Info poller runs
   while (true) {
@@ -49,14 +61,15 @@ setTimeout(function(){
     // If current time is within a time range of 5 seconds of check time start, poll for data, increment check timer
     if (currenttime.getTime() >= data[0].nxtchk.getTime() && currenttime.getTime() < data[0].nxtchk.getTime() + 5000){
       console.log("If Successful")
-      console.log("http://" + data[0].ip + ":" + data[0].port)
+      // console.log("http://" + data[0].ip + ":" + data[0].port)
       http.get("http://" + data[0].ip + ":" + data[0].port, function(res){
-          res.on('data', function(info){
-            console.log("Site:",data[0]._id,"Result:",JSON.parse(info))
-          }).on('error', function(err){
-            console.log(err.message)
-          })
+        console.log("get ran")
+        res.on('data', function(info){
+          console.log("Site:",data[0]._id,"Result:",JSON.parse(info))
         })
+      }).on('error', function(err){
+          console.log(err.message)
+      }).end()
       data[0].nxtchk = new Date(data[0].nxtchk.getTime() + (data[0].int * 60000))
     }
   }
