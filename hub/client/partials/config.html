@@ -1,8 +1,8 @@
 <div ng-controller="mainController">
-  <form ng-submit=''>
-    <input type="text" placeholder="Location">
-    <input type="text" placeholder="IP Address">
-    <input type="text" placeholder="Port">
+  <form name='newform' ng-submit='addLocation()'>
+    <input type="text" placeholder="Location" ng-model='newSite.location'>
+    <input type="text" placeholder="IP Address" ng-model='newSite.ip'>
+    <input type="number" placeholder="Port" ng-model='newSite.port'>
     <input type="submit" value="Add">
   </form>
   <table>
@@ -12,10 +12,10 @@
       <th>Port</th>
       <th>Additional Actions</th>
     </tr>
-    <tr ng-repeat=''>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr ng-repeat='site in sites'>
+      <td>{{site.location}}</td>
+      <td>{{site.ip}}</td>
+      <td>{{site.port}}</td>
       <td><a href="">Edit</a> <a href="">Delete</a></td>
     </tr>
   </table>
