@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'), path = require('path'), fs = require('fs');
 var models_path = path.join(__dirname, '../models');
-mongoose.connect('mongodb://localhost/sites');
+mongoose.connect('mongodb://localhost:4444/uptime');
 
 fs.readdirSync(models_path).forEach(function(file){
   if (file.indexOf('.js') >= 0){

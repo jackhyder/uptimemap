@@ -1,5 +1,5 @@
 <div ng-controller="mainController">
-  <input type="text" placeholder="Filter" ng-model="filter">
+  <input type="text" placeholder="Filter" ng-model="sitestat">
   <table>
     <tr>
       <th>Location</th>
@@ -7,11 +7,11 @@
       <th>Port</th>
       <th>Status</th>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>🔥🔥🔥🔥🔥</td>
+    <tr ng-repeat='site in sites | filter:sitestat'>
+      <td>{{site.location}}</td>
+      <td>{{site.ip}}</td>
+      <td>{{site.port}}</td>
+      <td>⬆️ ⏸ ⬇️</td>
     </tr>
   </table>
 </div>
