@@ -1,25 +1,19 @@
-var mongoose = require('mongoose'), path = require('path'), datalogic = require(path.join(__dirname,'datalogic.js'));
-var site = mongoose.model('Site');
-var data = datalogic.data;
-var count = 0;
-setInterval(function(){
-  count +=1;
-  console.log("########" + count);
-  console.log(
-    data.sort(function(a,b){
-      if (a.nxtchk.getTime() > b.nxtchk.getTime()){
-          return 1
-      }
-      if (a.nxtchk.getTime() < b.nxtchk.getTime()){
-        return -1
-      }
-      return 0
-    })
-  );
-}, 15000);
+var mongoose = require('mongoose');
+var Site = mongoose.model('Site');
 
 module.exports = (function(){
   return{
+      index: function(req, res){
+          Site.find({}, function(err, data){
+              res.json(data)
+          })
+      },
+      addLocation: function(req, res){
+          var site = new Site(req.body)
+          site.interval = 5;
+          site.save(function(err, site){
+              res.json(site);
+          })
+      }
   }
 })();
-console.log("Login controller loaded")
