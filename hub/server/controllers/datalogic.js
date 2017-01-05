@@ -2,9 +2,9 @@
 module.exports = (function(){
   return{
     data:[
-      {_id: "london", ip: "192.168.1.61", port: "8000", int: .25},
-      {_id: "newyork", ip: "192.168.1.62", port: "8000", int: .5},
-      {_id: "hongkong", ip: "192.168.1.131", port: "8000", int: .75}
+      {_id: "london", ip: "192.168.1.250", port: "8000", int: .25, state:"unknown"},
+      {_id: "newyork", ip: "192.168.1.251", port: "8000", int: .5, state:"unknown"},
+      {_id: "hongkong", ip: "192.168.1.252", port: "8000", int: .75, state:"unknown"}
     ]
   }
 })();
