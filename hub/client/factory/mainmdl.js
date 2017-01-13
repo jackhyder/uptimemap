@@ -11,5 +11,9 @@ app.factory('mainFactory', function($http){
       $http.post('/site/add', site).success(function(data){
       })
   }
+  factory.deleteLocation = function(id){
+      $http.post('/site/delete', {data:id}).success(function(res){
+      })
+  }
   return factory;
 })

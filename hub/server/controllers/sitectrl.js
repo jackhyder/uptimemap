@@ -14,6 +14,17 @@ module.exports = (function(){
           site.save(function(err, site){
               res.json(site);
           })
+      },
+      deleteLocation: function(req, res){
+          Site.remove({
+              _id: req.body.data
+          }, function(err, data) {
+              if(err){
+                  res.json(err);
+              } else{
+                  res.json(data);
+              }
+          })
       }
   }
 })();

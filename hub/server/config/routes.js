@@ -7,10 +7,7 @@ module.exports = function(app){
     app.post('/site/add', function(req, res){
         sitectrl.addLocation(req, res);
     })
-    app.post('/site/edit', function(req, res){
-        sitectrl.addLocation(req, res);
-    })
     app.post('/site/delete', function(req, res){
-        sitectrl.addLocation(req, res);
+        sitectrl.deleteLocation(req, res);
     })
 }
