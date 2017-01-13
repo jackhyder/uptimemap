@@ -5,7 +5,7 @@ app.config(function($routeProvider){
   .when('/', {
     templateUrl: 'partials/status.html'
     })
-  .when('/config', {
+    .when('/config', {
     templateUrl: 'partials/config.html'
     })
   .otherwise({
