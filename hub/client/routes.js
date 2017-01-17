@@ -8,6 +8,9 @@ app.config(function($routeProvider){
     .when('/config', {
         templateUrl: 'partials/config.html'
     })
+    .when('/edit/:id', {
+        templateUrl: 'partials/edit.html'
+    })
     .otherwise({
         redirectTo: '/'
     });

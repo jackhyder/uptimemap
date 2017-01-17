@@ -1,5 +1,12 @@
-app.controller('mainController', function($scope, $route, mainFactory){
+app.controller('mainController',
+['$scope', '$route', '$routeParams', '$location', 'mainFactory',
+function($scope, $route, $routeParams, $location, mainFactory){
     $scope.sites = [];
+    if($routeParams.id){
+        mainFactory.get($routeParams.id, function(data){
+            $scope.site = data;
+        })
+    }
     mainFactory.index(function(data){
         $scope.sites = data;
     })
@@ -12,4 +19,8 @@ app.controller('mainController', function($scope, $route, mainFactory){
         mainFactory.deleteLocation(_id)
         $route.reload();
     }
-})
+    $scope.editLocation = function(_id){
+        mainFactory.editLocation(_id, $scope.site);
+        $location.url('/config')
+    }
+}]);

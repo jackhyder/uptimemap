@@ -10,4 +10,10 @@ module.exports = function(app){
     app.post('/site/delete', function(req, res){
         sitectrl.deleteLocation(req, res);
     })
+    app.post('/site/edit/:id', function(req, res){
+        sitectrl.editLocation(req, res);
+    })
+    app.get('/site/:id', function(req, res){
+        sitectrl.getLocation(req, res);
+    })
 }

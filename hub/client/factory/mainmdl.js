@@ -15,5 +15,16 @@ app.factory('mainFactory', function($http){
       $http.post('/site/delete', {data:id}).success(function(res){
       })
   }
+  factory.editLocation = function(id, data){
+
+      $http.post('site/edit/' + id, data).success(function(res){
+      })
+  }
+  factory.get = function(id, callback){
+      $http.get('/site/' + id).success(function(output){
+          factory.site = output;
+          callback(output);
+      })
+  }
   return factory;
 })

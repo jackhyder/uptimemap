@@ -25,6 +25,24 @@ module.exports = (function(){
                   res.json(data);
               }
           })
+      },
+      editLocation: function(req, res){
+          Site.update({_id: req.params.id}, {location: req.body.location, ip: req.body.ip}, function(err, data) {
+              if(err){
+                  res.json(err);
+              } else{
+                  res.json({status:true});
+              }
+          })
+      },
+      getLocation: function(req, res){
+          Site.find({_id: req.params.id}, function(err, data){
+              if(err){
+                  res.json(err)
+              } else {
+                  res.json(data[0])
+              }
+          })
       }
   }
 })();
