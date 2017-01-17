@@ -18,3 +18,7 @@ td, th{
   width:130px;
   text-align: left;
 }
+
+tr {
+    height:20px;
+}

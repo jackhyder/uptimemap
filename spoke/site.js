@@ -3,7 +3,7 @@ var port = 8000;
 
 var app = http.createServer(function(req,res){
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ result: 'success' }));
+    res.end(JSON.stringify({ result: 'online' }));
 });
 
 app.listen(port,function(){
